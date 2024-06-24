@@ -2,7 +2,7 @@ print("\n")
 print("Welcome to our Krankenhaus Verwaltungssystem. Please follow the instructions so we can process the data.")
 
 print("Please type in your first and second name.")
-from Name_Patient import DataPatient
+from Name_Patient import name_Patient
 
 print("\n")
 print("Please type in your biological gender.")
