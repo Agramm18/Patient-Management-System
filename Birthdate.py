@@ -15,10 +15,16 @@ class BirthDate:
                 print("\n")
                 print("Note that every input must be in numerical integer inputs")
                 self.birth_day= int(input("Ohn what date were you born: ")) #Get the Birthdate from the Patient
+                if self.birth_day < 1 or self.birth_day > 31:
+                    raise ValueError("Invalid input your birth year must be between 1 and 31")
 
                 self.birth_month = int(input("On what month were you born: ")) #Get the Birth Month from the Patient
+                if self.birth_month < 1 or self.birth_month > 12:
+                    raise ValueError("Invalid input your birht month must be between 1 and 12")
 
                 self.birth_year = int(input("On what year where you born: ")) #Get the Birth Year from the Patient
+                if self.birth_year > datetime.now().year:
+                    raise ValueError("Invalid input your birth year can't be higher than the the current year")
 
                 self.Birth_Date = datetime(day=self.birth_day, month=self.birth_month, year=self.birth_year) #Get the Birthdate from Birth day, Birth month and Birth Year
 
@@ -26,12 +32,14 @@ class BirthDate:
                 Current_Date = datetime.now().year
                 self.Current_Age = Current_Date - self.birth_year
                 break
+            
 
             #+Error Handeling
-            except ValueError:
-                print("Invalid Input please follow the instructions to continue")
-            except Exception as e:
-                print(f"Error: {e} ")
+            except ValueError as ve:
+                print(ve)
+                print("Invalid input please follow the instructions")
+
+            
 
     def currentAge(self):
         return (self.Current_Age) #This will be needed for a calculation in another file
